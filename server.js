@@ -9,6 +9,7 @@ app.use(express.json());
 connectDb();
 
 app.use("/book", require("./routes/book.routes"));
+app.use("/admin", require("./routes/admin.routes"));
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
