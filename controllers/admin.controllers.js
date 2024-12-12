@@ -10,7 +10,7 @@ const registerAdmin = async (req, res) => {
         };
         const adminAvailable = await Admin.findOne({email});
         if (adminAvailable) {
-            return res.statua(400).json({message: "Admin already registered"});
+            return res.status(400).json({message: "Admin already registered"});
         };
         const hashedPassword = await bcrypt.hash(password, 10);
         const admin = new Admin({
