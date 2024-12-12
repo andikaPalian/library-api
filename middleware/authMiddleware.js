@@ -10,7 +10,7 @@ const validateToken = async (req, res, next) => {
                 if (error) {
                     return res.status(403).json({message: "User is not authorized"});
                 };
-                req.user = decoded.user || {id: decoded.id};
+                req.user = decoded;
                 next();
             });
         } else {
@@ -26,11 +26,11 @@ const validateToken = async (req, res, next) => {
 };
 
 const validateAdmin = (req, res, next) => {
-    if (req.user.role === "admin") {
+    if (req.user && req.user.role === "admin") {
         next();
     } else {
-        return res.status(403).json({message: "Access denied : Admin only"});
-    };
+        return res.status(403).json({ message: "Access denied: Admin only" });
+    }
 };
 
 module.exports = {validateToken, validateAdmin};

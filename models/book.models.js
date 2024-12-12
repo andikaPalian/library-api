@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const bookSchema = new mongoose.Schema({
-    judul: {type: String, required: true},
-    penulis: {type: String, required: true},
-    penerbit: {type: String, required: true},
-    tahunTerbit: {type: Number, required: true},
-    jumlahHalaman: {type: Number, required: true},
+    title: {type: String, required: true},
+    author: {type: String, required: true},
+    publisher: {type: String, required: true},
+    publicationYear: {type: Number, required: true},
+    pages: {type: Number, required: true},
     genre: {type: String, required: true},
 }, {
     timestamps: true,

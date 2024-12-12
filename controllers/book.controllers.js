@@ -3,16 +3,16 @@ const Book = require("../models/book.models");
 
 const addBook = async (req, res) => {
     try {
-        const {judul, penulis, penerbit, tahunTerbit, jumlahHalaman, genre} = req.body;
-        if (!judul || !penulis || !penerbit || !tahunTerbit || !jumlahHalaman || !genre) {
+        const {title, author, publisher, publicationYear, pages, genre} = req.body;
+        if (!title || !author || !publisher || !publicationYear || !pages || !genre) {
             return res.status(400).json({message: "All fields are required"});
         };
         const book = new Book({
-            judul,
-            penulis,
-            penerbit,
-            tahunTerbit,
-            jumlahHalaman,
+            title,
+            author,
+            publisher,
+            publicationYear,
+            pages,
             genre,
         });
         await book.save();
